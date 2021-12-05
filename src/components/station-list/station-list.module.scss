@@ -1,0 +1,27 @@
+@mixin scrollbar(
+  $width,
+  $height,
+  $thumbColor: --white-40,
+  $trackColor: --black
+) {
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $height;
+  }
+  &::-webkit-scrollbar-track {
+    background: var($trackColor);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var($thumbColor);
+    border-radius: 3.5px;
+    border: 0;
+  }
+}
+
+.stationList {
+  padding: 2rem 3rem;
+  height: 40rem;
+  overflow-y: overlay;
+
+  @include scrollbar(4px, 0px, --white-40, --transparent);
+}

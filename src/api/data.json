@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Putin FM",
+    "frequency": "66,6",
+    "imgUrl": "./stations/station-1.png"
+  },
+  {
+    "id": 2,
+    "name": "Dribble FM",
+    "frequency": "101,2",
+    "imgUrl": "./stations/station-2.png"
+  },
+  {
+    "id": 3,
+    "name": "Doge FM",
+    "frequency": "99,4",
+    "imgUrl": "./stations/station-3.jpeg"
+  },
+  {
+    "id": 4,
+    "name": "Ballads FM",
+    "frequency": "87,1",
+    "imgUrl": "./stations/station-4.jpeg"
+  }
+]

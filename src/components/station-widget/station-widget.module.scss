@@ -1,0 +1,18 @@
+.stationWidget {
+  padding: 2rem 0 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .stationImg {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    outline: 2px solid aliceblue;
+  }
+
+  .volumeBtn:hover {
+    filter: drop-shadow(2px 4px 6px black);
+  }
+}
