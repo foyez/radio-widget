@@ -9,14 +9,14 @@ export type StationState = {
 };
 
 interface FetchStationStart {
-  type: ActionTypes.FETCH_STATION_START;
+  type: ActionTypes.FETCH_STATIONS_START;
 }
 interface FetchStationSuccess {
-  type: ActionTypes.FETCH_STATION_SUCCESS;
+  type: ActionTypes.FETCH_STATIONS_SUCCESS;
   payload: Station[];
 }
 interface FetchStationFailure {
-  type: ActionTypes.FETCH_STATION_FAILURE;
+  type: ActionTypes.FETCH_STATIONS_FAILURE;
   payload: string;
 }
 interface SelectStation {
@@ -42,18 +42,18 @@ export const stationReducer = (
   action: StationAction
 ): StationState => {
   switch (action.type) {
-    case ActionTypes.FETCH_STATION_START:
+    case ActionTypes.FETCH_STATIONS_START:
       return {
         ...state,
         isFetching: true,
       };
-    case ActionTypes.FETCH_STATION_SUCCESS:
+    case ActionTypes.FETCH_STATIONS_SUCCESS:
       return {
         ...state,
         stations: action.payload,
         isFetching: false,
       };
-    case ActionTypes.FETCH_STATION_FAILURE:
+    case ActionTypes.FETCH_STATIONS_FAILURE:
       return {
         ...state,
         isFetching: false,

@@ -3,15 +3,15 @@ import { bindActionCreators } from "redux";
 import { ActionTypes } from "./station.types";
 import type { Station } from "../../types";
 
-export const fetchStationStart = () => ({
-  type: ActionTypes.FETCH_STATION_START,
+export const fetchStationsStart = () => ({
+  type: ActionTypes.FETCH_STATIONS_START,
 });
-export const fetchStationSuccess = (stations: Station[]) => ({
-  type: ActionTypes.FETCH_STATION_SUCCESS,
+export const fetchStationsSuccess = (stations: Station[]) => ({
+  type: ActionTypes.FETCH_STATIONS_SUCCESS,
   payload: stations,
 });
-export const fetchStationFailure = (errorMessage: string) => ({
-  type: ActionTypes.FETCH_STATION_FAILURE,
+export const fetchStationsFailure = (errorMessage: string) => ({
+  type: ActionTypes.FETCH_STATIONS_FAILURE,
   payload: errorMessage,
 });
 export const selectStation = (station: Station | null) => ({
@@ -21,5 +21,5 @@ export const selectStation = (station: Station | null) => ({
 
 export const useStationActions = () => {
   const dispatch = useDispatch();
-  return bindActionCreators({ fetchStationStart, selectStation }, dispatch);
+  return bindActionCreators({ fetchStationsStart, selectStation }, dispatch);
 };

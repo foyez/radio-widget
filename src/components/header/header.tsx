@@ -10,7 +10,7 @@ export const Header: React.FC = () => {
       <button title="back">
         <img src={backBtn} alt="back" />
       </button>
-      <h1>Stations</h1>
+      <h1 className={classes.heading}>Stations</h1>
       <button title="switch">
         <img src={switchBtn} alt="switch" />
       </button>

@@ -19,7 +19,7 @@ describe("<StationItem />", () => {
     imgUrl: "./stations/station-2.png",
   };
 
-  test("render content", () => {
+  test("renders content", () => {
     const mockHandler = jest.fn();
     const component = render(
       <StationItem
@@ -35,23 +35,23 @@ describe("<StationItem />", () => {
     expect(stationContent).toHaveTextContent(station.frequency);
   });
 
-  test("after clicking the station content, station widget is displayed", () => {
-    const mockHandler = jest.fn();
-    const component = render(
-      <StationItem
-        station={station}
-        onClickStation={mockHandler}
-        selectedStation={station}
-      />
-    );
+  // test("after clicking the station content, station widget is displayed", () => {
+  //   const mockHandler = jest.fn();
+  //   const component = render(
+  //     <StationItem
+  //       station={station}
+  //       onClickStation={mockHandler}
+  //       selectedStation={station}
+  //     />
+  //   );
 
-    const stationContent = component.getByTestId("station-content");
-    fireEvent.click(stationContent);
+  //   const stationContent = component.getByTestId("station-content");
+  //   fireEvent.click(stationContent);
 
-    // const stationWidget = component.container.querySelector("#station-widget");
-    // console.log(stationWidget);
+  //   // const stationWidget = component.container.querySelector("#station-widget");
+  //   // console.log(stationWidget);
 
-    expect(mockHandler.mock.calls).toHaveLength(1);
-    // expect(stationWidget).not.toBeNull();
-  });
+  //   expect(mockHandler.mock.calls).toHaveLength(1);
+  //   // expect(stationWidget).not.toBeNull();
+  // });
 });

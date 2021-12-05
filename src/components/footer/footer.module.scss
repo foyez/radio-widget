@@ -1,5 +1,5 @@
 .footer {
-  height: 8rem;
+  height: 10rem;
   border-top: 1px solid #4c4f5b;
 
   display: flex;
@@ -9,13 +9,12 @@
 
   .footerTitle {
     color: #edae60;
-    font-size: 16px;
+    font-size: 1.6rem;
     text-transform: uppercase;
-    font-weight: 900;
+    font-weight: 700;
   }
 
   .stationName {
-    font-size: 2.1rem;
-    color: currentColor;
+    font-size: 3.5rem;
   }
 }

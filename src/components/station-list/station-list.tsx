@@ -8,11 +8,11 @@ import { useStation } from "../../store/selectors";
 import { Spinner } from "../spinner/spinner";
 
 export const StationList: React.FC = () => {
-  const { selectStation, fetchStationStart } = useStationActions();
+  const { selectStation, fetchStationsStart } = useStationActions();
   const { stations, isFetching, selectedStation } = useStation();
 
   useEffect(() => {
-    fetchStationStart();
+    fetchStationsStart();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleClickStation = (station: Station) => () => {
@@ -28,7 +28,7 @@ export const StationList: React.FC = () => {
     );
 
   return (
-    <div className={classes.stationList}>
+    <div data-testid="station-list" className={classes.stationList}>
       {stations.map((station) => (
         <StationItem
           key={station.id}

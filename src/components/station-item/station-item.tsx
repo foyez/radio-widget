@@ -29,7 +29,7 @@ export const StationItem: React.FC<StationProps> = ({
         onClick={onClickStation(station)}
       >
         <div>{name}</div>
-        <div>{frequency}</div>
+        <div className={classes.frequency}>{frequency}</div>
       </div>
     </div>
   );

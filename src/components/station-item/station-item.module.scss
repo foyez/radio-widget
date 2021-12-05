@@ -6,6 +6,11 @@
 
     display: flex;
     justify-content: space-between;
+    position: relative;
+
+    .frequency {
+      font-weight: 700;
+    }
   }
 
   &:not(:last-child) {
