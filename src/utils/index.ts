@@ -10,5 +10,3 @@ export const formatErrorMessage = (error: unknown): string => {
 
 export const wait = (ms = 0) =>
   new Promise((resolve) => setTimeout(resolve, ms));
-
-export const isArray = (data: unknown): data is [] => Array.isArray(data);

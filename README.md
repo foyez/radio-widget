@@ -1,7 +1,1 @@
-# RadioFM
-
-- prettier
-- husky
-- docker
-- vs settings
-- paths
+# Radio widget with react

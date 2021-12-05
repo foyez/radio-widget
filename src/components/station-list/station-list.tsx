@@ -20,12 +20,13 @@ export const StationList: React.FC = () => {
     selectStation(isSameStation ? null : station);
   };
 
-  if (isFetching)
+  if (isFetching) {
     return (
       <div className={classes.stationList}>
         <Spinner />
       </div>
     );
+  }
 
   return (
     <div data-testid="station-list" className={classes.stationList}>

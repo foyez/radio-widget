@@ -3,50 +3,49 @@ import {
   render,
   screen,
   waitFor,
-  waitForElementToBeRemoved,
+  cleanup,
+  fireEvent,
 } from "@testing-library/react";
 import { Provider } from "react-redux";
-import { rest } from "msw";
-import { setupServer } from "msw/node";
 
 import { StationList } from "./station-list";
-import store, { createStoreFn } from "../../store";
+import store from "../../store";
 
-const server = setupServer(
-  rest.get("/api", (req, res, ctx) => {
-    return res(
-      ctx.json([
-        {
-          id: 1,
-          name: "Putin FM",
-          frequency: "66,6",
-          imgUrl: "./stations/station-1.png",
-        },
-      ])
+afterEach(cleanup);
+
+describe("<StationList />", () => {
+  it("should show station list", async () => {
+    render(
+      <Provider store={store}>
+        <StationList />
+      </Provider>
     );
-  })
-);
 
-beforeAll(() => server.listen());
-afterEach(() => server.resetHandlers());
-afterAll(() => server.close());
+    const out = await waitFor(() => screen.getByTestId("station-list"));
+    const stationItems = out.querySelectorAll(".stationItem");
 
-// describe("<StationList />", () => {
-test("should show station list", async () => {
-  render(
-    <Provider store={createStoreFn()}>
-      <StationList />
-    </Provider>
-  );
-
-  await waitForElementToBeRemoved(screen.getByTestId("load-spinner"), {
-    timeout: 4000,
+    expect(stationItems).not.toBeNull();
   });
 
-  const out = await waitFor(() => screen.getByTestId("station-list"), {
-    timeout: 4000,
-  });
+  it("should toggle station widget", async () => {
+    render(
+      <Provider store={store}>
+        <StationList />
+      </Provider>
+    );
 
-  console.log(out);
+    const out = await waitFor(() => screen.getByTestId("station-list"));
+    const stationContents = out.querySelectorAll(".stationContent");
+
+    let radioWidget = screen.queryByTestId("station-widget");
+    expect(radioWidget).toBeNull();
+
+    fireEvent.click(stationContents[0]);
+    radioWidget = await waitFor(() => screen.queryByTestId("station-widget"));
+    expect(radioWidget).toBeInTheDocument();
+
+    fireEvent.click(stationContents[0]);
+    radioWidget = screen.queryByTestId("station-widget");
+    expect(radioWidget).toBeNull();
+  });
 });
-// });

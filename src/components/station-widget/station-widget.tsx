@@ -14,7 +14,7 @@ export const StationWidget: React.FC<StationWidgetProps> = ({
   imgUrl,
 }) => {
   return (
-    <div id="station-widget" className={classes.stationWidget}>
+    <div data-testid="station-widget" className={classes.stationWidget}>
       <button className={classes.volumeBtn}>
         <img src={volumeDown} alt="volume down" />
       </button>
